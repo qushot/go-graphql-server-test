@@ -30,6 +30,8 @@ Generating...
 Exec "go run ./server.go" to start GraphQL server
 ```
 
+`go run ./server.go` でサーバーを起動すると、 [GraphiQL](http://localhost:8080/) へとアクセス可能となる。
+
 ## 使い方
 
 ### DB の起動など
