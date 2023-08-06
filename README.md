@@ -19,6 +19,17 @@ import (
 `go mod tidy` を実行する。
 `go run github.com/99designs/gqlgen init` を実行する。
 
+成功すると以下のメッセージが出力される。
+
+```sh
+Creating gqlgen.yml
+Creating graph/schema.graphqls
+Creating server.go
+Generating...
+
+Exec "go run ./server.go" to start GraphQL server
+```
+
 ## 使い方
 
 ### DB の起動など
