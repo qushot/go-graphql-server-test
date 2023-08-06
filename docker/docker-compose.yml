@@ -1,0 +1,22 @@
+version: "3.7"
+services:
+  mysql:
+    container_name: mysql
+    image: mysql:8.0
+    platform: linux/amd64
+    ports:
+      - "3306:3306"
+    hostname: mysql
+    restart: always
+    user: root
+    environment:
+      MYSQL_ROOT_PASSWORD: rootroot
+      MYSQL_DATABASE: testdb
+      MYSQL_USER: api
+      MYSQL_PASSWORD: apiapi
+      MYSQL_INITDB_ARGS: "--encoding=UTF-8"
+      TZ: "Asia/Tokyo"
+    volumes:
+      - ./config/mysql.cnf:/etc/mysql/conf.d/my.cnf
+      - ./initdb/mysql:/docker-entrypoint-initdb.d
+      # - ../mysql:/var/lib/mysql
