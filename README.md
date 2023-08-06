@@ -32,6 +32,14 @@ Exec "go run ./server.go" to start GraphQL server
 
 `go run ./server.go` でサーバーを起動すると、 [GraphiQL](http://localhost:8080/) へとアクセス可能となる。
 
+### air
+
+Live reload tool.
+
+- `go install github.com/cosmtrek/air@v1.44.0` を実行する。
+- `air init` を実行し、 `.air.toml` ファイルを生成する。
+- `.air.toml` を編集し、 `air` コマンドを実行する。
+
 ## 使い方
 
 ### DB の起動など
