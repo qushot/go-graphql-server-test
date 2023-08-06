@@ -3,10 +3,21 @@
 GraphQL Server Side の実装を Go でお試しする。
 
 ## 準備
-ツールのインストール
 
-- gqlgen: `go install github.com/99designs/gqlgen@v0.17.36`
-- goose: `go install github.com/pressly/goose/v3/cmd/goose@v3.14.0`
+### gqlgen
+
+`tools/tools.go` を作成し、以下のコードを貼り付ける。
+
+```go
+package tools
+
+import (
+	_ "github.com/99designs/gqlgen"
+)
+```
+
+`go mod tidy` を実行する。
+`go run github.com/99designs/gqlgen init` を実行する。
 
 ## 使い方
 
