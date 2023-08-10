@@ -5,7 +5,7 @@ mysql/up:
 mysql/log:
 	docker-compose -f docker/docker-compose.yml logs -f mysql
 mysql/exec:
-	docker-compose -f docker/docker-compose.yml exec mysql mysql -u user -p
+	docker-compose -f docker/docker-compose.yml exec mysql mysql -u api -p
 mysql/rm:
 	docker-compose -f docker/docker-compose.yml rm -fsv mysql
 
