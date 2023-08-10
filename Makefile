@@ -10,9 +10,13 @@ mysql/rm:
 	docker-compose -f docker/docker-compose.yml rm -fsv mysql
 
 # Go
-.PHONY: connectiontest
+GQLGEN_ARG :=
+
+.PHONY: connectiontest gqlgen
 connectiontest:
 	go run ./connectiontest/main.go
+gqlgen:
+	go run github.com/99designs/gqlgen ${GQLGEN_ARG}
 
 # All
 .PHONY: down
