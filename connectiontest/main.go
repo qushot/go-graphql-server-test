@@ -8,7 +8,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
-type User struct {
+type TestUser struct {
 	ID      int
 	Name    string
 	Address string
@@ -25,16 +25,16 @@ func main() {
 		log.Fatalf("db.Ping error: %v", err)
 	}
 
-	rows, err := db.Query("SELECT * FROM user LOCK IN SHARE MODE")
+	rows, err := db.Query("SELECT * FROM testuser LOCK IN SHARE MODE")
 	if err != nil {
 		log.Fatalf("db.Query error: %v", err)
 	}
 	defer rows.Close()
 
-	var us []User
+	var us []TestUser
 
 	for rows.Next() {
-		var u User
+		var u TestUser
 		if err := rows.Scan(&u.ID, &u.Name, &u.Address); err != nil {
 			log.Fatalf("rows.Scan error: %v", err)
 		}
