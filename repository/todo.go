@@ -1,7 +1,9 @@
 package repository
 
 import (
+	"fmt"
 	"log"
+	"math/rand"
 
 	"github.com/qushot/go-graphql-server-test/graph/model"
 )
@@ -38,6 +40,33 @@ func (t *Todo) GetAll() ([]model.Todo, error) {
 	}
 
 	log.Printf("DONE: repository#Todo#GetAll")
+	log.Printf("count: %v", len(ts))
 
 	return ts, nil
+}
+
+func (t *Todo) Create(input model.NewTodo) (*model.Todo, error) {
+	stmt, err := t.c.Prepare("INSERT INTO todo (id, text, user_id) VALUES (?, ?, ?)")
+	if err != nil {
+		log.Fatalf("'todo' t.c.Prepare error: %v", err)
+	}
+	defer stmt.Close()
+
+	id := fmt.Sprintf("T%09d", rand.Intn(999999999))
+
+	if _, err := stmt.Exec(id, input.Text, input.UserID); err != nil {
+		log.Fatalf("'todo' stmt.Exec error: %v", err)
+	}
+
+	m := model.Todo{
+		ID:     id,
+		Text:   input.Text,
+		Done:   false,
+		UserID: input.UserID,
+	}
+
+	log.Printf("DONE: repository#Todo#Create")
+	log.Printf("m: %+v", m)
+
+	return &m, nil
 }

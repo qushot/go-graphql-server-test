@@ -34,7 +34,7 @@ VALUES
 CREATE TABLE `todo` (
     `id` VARCHAR(10) NOT NULL PRIMARY KEY
     , `text` VARCHAR(10) NOT NULL
-    , `done` BOOLEAN NOT NULL
+    , `done` BOOLEAN NOT NULL DEFAULT false
     , `user_id` VARCHAR(10)
     , FOREIGN KEY (`user_id`)
         REFERENCES `user`(`id`)

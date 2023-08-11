@@ -6,21 +6,13 @@ package graph
 
 import (
 	"context"
-	"fmt"
-	"math/rand"
 
 	"github.com/qushot/go-graphql-server-test/graph/model"
 )
 
 // CreateTodo is the resolver for the createTodo field.
 func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) (*model.Todo, error) {
-	// TODO: todoテーブルへデータを登録する
-	todo := model.Todo{
-		Text:   input.Text,
-		ID:     fmt.Sprintf("T%d", rand.Int()),
-		UserID: input.UserID,
-	}
-	return &todo, nil
+	return r.TodoRepository.Create(input)
 }
 
 // Todos is the resolver for the todos field.
