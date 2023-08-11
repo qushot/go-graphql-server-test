@@ -20,14 +20,15 @@ VALUES
 
 CREATE TABLE `user` (
     `id` VARCHAR(10) NOT NULL PRIMARY KEY
+    , `name` VARCHAR(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='ユーザー';
 
 
-INSERT INTO `user` (`id`)
+INSERT INTO `user` (`id`, `name`)
 VALUES
-    ('1')
-    , ('2')
-    , ('3')
+    ('1', 'Alice')
+    , ('2', 'Bob')
+    , ('3', 'Carol')
 ;
 
 

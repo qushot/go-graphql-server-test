@@ -30,6 +30,7 @@ func main() {
 			graph.Config{
 				Resolvers: &graph.Resolver{
 					TodoRepository: repository.NewTodo(client),
+					UserRepository: repository.NewUser(client),
 				},
 			},
 		),

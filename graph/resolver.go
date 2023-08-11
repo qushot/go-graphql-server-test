@@ -12,4 +12,5 @@ import (
 
 type Resolver struct {
 	TodoRepository *repository.Todo
+	UserRepository *repository.User
 }
